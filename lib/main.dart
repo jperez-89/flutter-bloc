@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:blocs_app/presentation/blocs/blocs.dart';
 import 'package:blocs_app/config/config.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(
+    const BlocsProviders(),
+  );
+}
+
+class BlocsProviders extends StatelessWidget {
+  const BlocsProviders({super.key});
+
+//? En todo widget que se desprenda del blocProviderm tendra acceso a los cubits y blocs que se hayan proporcionado.
+  @override
+  Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => UsernameCubit(),
+          lazy: false, //? Crea el cubit inmediatamente al iniciar la app
+        ),
+      ],
+      child: const MyApp(),
+    );
+  }
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
