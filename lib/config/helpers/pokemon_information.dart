@@ -9,7 +9,7 @@ class PokemonInformation {
       final response =
           await dio.get('https://pokeapi.co/api/v2/pokemon/$pokemonId');
 
-      return response.data['name'] ?? 'Nombre no se encontro';
+      return response.data['name'] ?? 'Nombre no se encontró';
     } catch (e) {
       return 'Nombre no pudo ser obtenido';
     }
