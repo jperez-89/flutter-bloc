@@ -23,6 +23,10 @@ class _HomeScreenView extends StatelessWidget {
     return ListView(
       children: const [
         _CustomListTile(
+            title: 'Prueba',
+            subTitle: 'Pantalla de prueba',
+            location: '/test-screen'),
+        _CustomListTile(
             title: 'Un Bloc simple',
             subTitle: 'Un uso simple de un Cubit',
             location: '/simple-cubit'),
